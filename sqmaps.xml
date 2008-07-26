@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<secret-quest-maps>
+	<ship number="1">
+		<level number="1">
+			<room id="0x110">
+				<start/>
+				<door dir="east"/>
+			</room>
+			<room id="0x111">
+				<weapon name="sword"/>
+				<door dir="west"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x112">
+				<door dir="west"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x113">
+				<door dir="west"/>
+				<door dir="south"/>
+			</room>
+
+			<room id="0x114">
+				<symbol/>
+				<door dir="south"/>
+			</room>
+			<room id="0x115">
+				<teleport/>
+				<door dir="south"/>
+			</room>
+			<room id="0x116">
+				<self-destruct/>
+				<door dir="south"/>
+			</room>
+			<room id="0x117">
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+
+			<room id="0x118">
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+			<room id="0x119">
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+			<room id="0x11A">
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+			<room id="0x11B">
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+
+			<room id="0x11C">
+				<door dir="north"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x11D">
+				<door dir="west"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x11E">
+				<door dir="west"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x11F">
+				<door dir="north"/>
+				<door dir="west"/>
+			</room>
+		</level>
+	</ship>
+
+	<ship number="2">
+		<level number="1">
+			<room id="0x210">
+				<start/>
+				<door dir="east"/>
+				<door dir="south"/>
+			</room>
+			<room id="0x211">
+				<door dir="west"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x212">
+				<sonic-key/>
+				<door dir="west"/>
+			</room>
+			<room id="0x213">
+				<symbol/>
+				<door dir="south"/>
+			</room>
+
+			<room id="0x214">
+				<door dir="north"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x215">
+				<door dir="west"/>
+				<door dir="south"/>
+			</room>
+			<room id="0x216">
+				<mirror to="0x226"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x217">
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+
+			<room id="0x218">
+				<door dir="east"/>
+			</room>
+			<room id="0x219">
+				<door dir="west"/>
+				<door dir="north"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x21A">
+				<door dir="west"/>
+				<door dir="south"/>
+			</room>
+			<room id="0x21B">
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+
+			<room id="0x21C">
+				<stairs dir="down" to="0x22C"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x21D">
+				<zap/>
+				<door dir="west"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x21E">
+				<door dir="west"/>
+				<door dir="north"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x21F">
+				<door dir="west"/>
+				<door dir="north"/>
+			</room>
+		</level>
+
+		<level number="2">
+			<room id="0x220">
+				<symbol/>
+				<door dir="south"/>
+			</room>
+			<room id="0x221">
+				<door dir="east"/>
+				<door dir="south"/>
+			</room>
+			<room id="0x222">
+				<teleport/>
+				<door dir="west"/>
+			</room>
+			<room id="0x223">
+				<self-destruct/>
+				<door dir="south"/>
+			</room>
+
+			<room id="0x224">
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+			<room id="0x225">
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+			<room id="0x226">
+				<extra/>
+				<stairs dir="up" to="0x216"/>
+			</room>
+			<room id="0x227">
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+
+			<room id="0x228">
+				<door dir="north"/>
+				<door dir="east"/>
+				<door dir="south"/>
+			</room>
+			<room id="0x229">
+				<door dir="north"/>
+				<door dir="east"/>
+				<door dir="south"/>
+				<door dir="west"/>
+			</room>
+			<room id="0x22A">
+				<power-up type="oxygen"/>
+				<door dir="east"/>
+				<door dir="south"/>
+				<door dir="west"/>
+			</room>
+			<room id="0x22B">
+				<power-up type="force"/>
+				<door dir="north"/>
+				<door dir="south"/>
+			</room>
+
+			<room id="0x22C">
+				<stairs dir="up" to="0x21C"/>
+				<door dir="north"/>
+			</room>
+			<room id="0x22D">
+				<door dir="north"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x22E">
+				<door dir="west"/>
+				<door dir="east"/>
+			</room>
+			<room id="0x22F">
+				<door dir="north"/>
+				<door dir="west"/>
+			</room>
+		</level>
+	</ship>
+
+	<ship number="3">
+	</ship>
+
+	<ship number="4">
+	</ship>
+
+	<ship number="5">
+	</ship>
+
+	<ship number="6">
+	</ship>
+
+	<ship number="7">
+	</ship>
+
+	<ship number="8">
+	</ship>
+</secret-quest-maps>
