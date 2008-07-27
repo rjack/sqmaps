@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ship number="2">
+	<level number="1">
+		<room id="0">
+			<start/>
+			<door dir="east"/>
+			<door dir="south"/>
+		</room>
+		<room id="1">
+			<door dir="west"/>
+			<door dir="east"/>
+		</room>
+		<room id="2">
+			<sonic-key/>
+			<door dir="west"/>
+		</room>
+		<room id="3">
+			<symbol/>
+			<door dir="south"/>
+		</room>
+
+		<room id="4">
+			<door dir="north"/>
+			<door dir="east"/>
+		</room>
+		<room id="5">
+			<door dir="west"/>
+			<door dir="south"/>
+		</room>
+		<room id="6">
+			<mirror to="22"/>
+			<door dir="east"/>
+		</room>
+		<room id="7">
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+
+		<room id="8">
+			<door dir="east"/>
+		</room>
+		<room id="9">
+			<door dir="west"/>
+			<door dir="north"/>
+			<door dir="east"/>
+		</room>
+		<room id="10">
+			<door dir="west"/>
+			<door dir="south"/>
+		</room>
+		<room id="11">
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+
+		<room id="12">
+			<stairs dir="down" to="28"/>
+			<door dir="east"/>
+		</room>
+		<room id="13">
+			<zap/>
+			<door dir="west"/>
+			<door dir="east"/>
+		</room>
+		<room id="14">
+			<door dir="west"/>
+			<door dir="north"/>
+			<door dir="east"/>
+		</room>
+		<room id="15">
+			<door dir="west"/>
+			<door dir="north"/>
+		</room>
+	</level>
+
+	<level number="2">
+		<room id="16">
+			<symbol/>
+			<door dir="south"/>
+		</room>
+		<room id="17">
+			<door dir="east"/>
+			<door dir="south"/>
+		</room>
+		<room id="18">
+			<teleport/>
+			<door dir="west"/>
+		</room>
+		<room id="19">
+			<self-destruct/>
+			<door dir="south"/>
+		</room>
+
+		<room id="20">
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+		<room id="21">
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+		<room id="22">
+			<extra/>
+			<stairs dir="up" to="6"/>
+		</room>
+		<room id="23">
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+
+		<room id="24">
+			<door dir="north"/>
+			<door dir="east"/>
+			<door dir="south"/>
+		</room>
+		<room id="25">
+			<door dir="north"/>
+			<door dir="east"/>
+			<door dir="south"/>
+			<door dir="west"/>
+		</room>
+		<room id="26">
+			<power-up type="oxygen"/>
+			<door dir="east"/>
+			<door dir="south"/>
+			<door dir="west"/>
+		</room>
+		<room id="27">
+			<power-up type="force"/>
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+
+		<room id="28">
+			<stairs dir="up" to="12"/>
+			<door dir="north"/>
+		</room>
+		<room id="29">
+			<door dir="north"/>
+			<door dir="east"/>
+		</room>
+		<room id="30">
+			<door dir="west"/>
+			<door dir="east"/>
+		</room>
+		<room id="31">
+			<door dir="north"/>
+			<door dir="west"/>
+		</room>
+	</level>
+</ship>

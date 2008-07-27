@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ship number="1">
+	<level number="1">
+		<room id="0">
+			<start/>
+			<door dir="east"/>
+		</room>
+		<room id="1">
+			<weapon name="sword"/>
+			<door dir="west"/>
+			<door dir="east"/>
+		</room>
+		<room id="2">
+			<door dir="west"/>
+			<door dir="east"/>
+		</room>
+		<room id="3">
+			<door dir="west"/>
+			<door dir="south"/>
+		</room>
+
+		<room id="4">
+			<symbol/>
+			<door dir="south"/>
+		</room>
+		<room id="5">
+			<teleport/>
+			<door dir="south"/>
+		</room>
+		<room id="6">
+			<self-destruct/>
+			<door dir="south"/>
+		</room>
+		<room id="7">
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+
+		<room id="8">
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+		<room id="9">
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+		<room id="10">
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+		<room id="11">
+			<door dir="north"/>
+			<door dir="south"/>
+		</room>
+
+		<room id="12">
+			<door dir="north"/>
+			<door dir="east"/>
+		</room>
+		<room id="13">
+			<door dir="west"/>
+			<door dir="east"/>
+		</room>
+		<room id="14">
+			<door dir="west"/>
+			<door dir="east"/>
+		</room>
+		<room id="15">
+			<door dir="north"/>
+			<door dir="west"/>
+		</room>
+	</level>
+</ship>
