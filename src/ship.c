@@ -50,7 +50,6 @@ ship_room_set_door (int room_id, xmlChar *direction)
 {
 	assert (direction != NULL);
 
-	/* TODO aggiungere assert */
 	if (xmlStrEqual (direction, BAD_CAST "north"))
 		Ship.s_room[room_id].r_north = room_id - 4;
 	else if (xmlStrEqual (direction, BAD_CAST "east"))
@@ -63,6 +62,71 @@ ship_room_set_door (int room_id, xmlChar *direction)
 		fprintf (stderr, "Invalid door direction: %s\n", direction);
 		exit (EXIT_FAILURE);
 	}
+}
+
+
+void
+ship_room_set_extra (int room_id)
+{
+	Ship.s_room[room_id].r_extra = 1;
+}
+
+
+void
+ship_room_set_power_up (int room_id)
+{
+	Ship.s_room[room_id].r_power_up = 1;
+}
+
+
+void
+ship_room_set_self_destruct (int room_id)
+{
+	Ship.s_room[room_id].r_self_destruct = 1;
+}
+
+
+void
+ship_room_set_sonic_key (int room_id)
+{
+	Ship.s_room[room_id].r_sonic_key = 1;
+}
+
+
+void
+ship_room_set_stairs (int room_id, xmlChar *direction, int destination_id)
+{
+	assert (direction != NULL);
+
+	if (xmlStrEqual (direction, BAD_CAST "up"))
+		Ship.s_room[room_id].r_up = destination_id;
+	else if (xmlStrEqual (direction, BAD_CAST "down"))
+		Ship.s_room[room_id].r_down = destination_id;
+	else {
+		fprintf (stderr, "Invalid stairs direction: %s\n", direction);
+		exit (EXIT_FAILURE);
+	}
+}
+
+
+void
+ship_room_set_symbol (int room_id)
+{
+	Ship.s_room[room_id].r_symbol = 1;
+}
+
+
+void
+ship_room_set_teleport (int room_id)
+{
+	Ship.s_room[room_id].r_teleport = 1;
+}
+
+
+void
+ship_room_set_weapon (int room_id)
+{
+	Ship.s_room[room_id].r_weapon = 1;
 }
 
 
@@ -89,7 +153,6 @@ room_init (struct room *room)
 	room->r_weapon = 0;
 	room->r_teleport = 0;
 	room->r_self_destruct = 0;
-	room->r_zap = 0;
 	room->r_power_up = 0;
 	room->r_extra = 0;
 }
