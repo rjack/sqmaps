@@ -57,7 +57,7 @@ ship_room_set_door (int room_id, xmlChar *direction)
 	else if (xmlStrEqual (direction, BAD_CAST "west"))
 		Ship.s_room[room_id].r_west = room_id - 1;
 	else if (xmlStrEqual (direction, BAD_CAST "south"))
-		Ship.s_room[room_id].r_west = room_id + 4;
+		Ship.s_room[room_id].r_south = room_id + 4;
 	else {
 		fprintf (stderr, "Invalid door direction: %s\n", direction);
 		exit (EXIT_FAILURE);
