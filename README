@@ -1,1 +1,22 @@
-TODO, hang on.
+				   Overview
+
+Secret Quest (TM) was a game for the Atari 2600 VCS.
+
+It was incredibly hard.
+Well, if you play it with an emulator, it still IS.
+
+So I'm trying to use a bit of graph theory to compute my way through the
+alien ships.
+
+
+				Project goals
+
+- give a motivation for graph theory study
+- waste time on useless code
+- possibily win the game
+
+
+				    Links
+
+Stella emulator: http://stella.sourceforge.net/
+Secret Quest: http://www.atariage.com/software_page.html?SoftwareLabelID=425
