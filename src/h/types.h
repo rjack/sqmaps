@@ -1,3 +1,6 @@
+#ifndef SQMAPS_TYPES_H
+#define SQMAPS_TYPES_H
+
 struct room {
 	/* Id della room di destinazione, -1 se assente. */
 	int r_east;
@@ -27,3 +30,6 @@ struct ship {
 
 	struct room *s_room;
 };
+
+
+#endif /* SQMAPS_TYPES_H */
