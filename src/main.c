@@ -37,14 +37,6 @@ static int 		node_has_name		(xmlTextReaderPtr reader,
 int
 main (int argc, char **argv)
 {
-	/* 
-	 * TODO
-	 * [x] lettura file xml mappe
-	 * [x] costruzione struttura dati
-	 * [ ] calcola soluzione
-	 * [ ] manda in output la soluzione
-	 */
-
 	int ret;
 	char *file_path;
 	xmlTextReaderPtr reader;
@@ -59,6 +51,12 @@ main (int argc, char **argv)
 			fprintf (stderr, "Errore durante la lettura del file %s\n", file_path);
 	} else
 		fprintf (stderr, "Impossibile aprire il file %s\n", file_path);
+
+	ship_find_paths ();
+
+	ship_compute_shortest_path ();
+
+	ship_output_solution ();
 
 	return 0;
 }

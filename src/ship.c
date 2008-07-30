@@ -20,27 +20,37 @@ static struct ship Ship;
 ****************************************************************************/
 
 static void room_init (struct room *room);
-static int room_quantity (int ship_id);
 
 
 /****************************************************************************
 			       Public functions
 ****************************************************************************/
 
+/* Ship creation functions. */
+
+
 void
 ship_create (int id)
 {
 	int i;
 
-	Ship.s_id = id;
+	assert (id > 0 && id < 8);
 
-	Ship.s_room = malloc (room_quantity (id) * sizeof(struct room));
+	Ship.s_room_quantity = ROOMS_PER_LEVEL * id;
+	Ship.s_symbol_quantity = 0;
+	Ship.s_sonic_key_quantity = 0;
+	Ship.s_mirror_quantity = 0;
+	Ship.s_weapon_quantity = 0;
+	Ship.s_extra_quantity = 0;
+	Ship.s_power_up_quantity = 0;
+
+	Ship.s_room = malloc (Ship.s_room_quantity * sizeof(struct room));
 	if (Ship.s_room == NULL) {
 		perror ("Cannot allocate memory.");
 		exit (EXIT_FAILURE);
 	}
 
-	for (i = 0; i < room_quantity (id); i++)
+	for (i = 0; i < Ship.s_room_quantity; i++)
 		room_init (&Ship.s_room[i]);
 }
 
@@ -69,6 +79,7 @@ void
 ship_room_set_extra (int room_id)
 {
 	Ship.s_room[room_id].r_extra = 1;
+	Ship.s_extra_quantity++;
 }
 
 
@@ -76,6 +87,7 @@ void
 ship_room_set_power_up (int room_id)
 {
 	Ship.s_room[room_id].r_power_up = 1;
+	Ship.s_power_up_quantity++;
 }
 
 
@@ -90,6 +102,7 @@ void
 ship_room_set_sonic_key (int room_id)
 {
 	Ship.s_room[room_id].r_sonic_key = 1;
+	Ship.s_sonic_key_quantity++;
 }
 
 
@@ -113,6 +126,7 @@ void
 ship_room_set_symbol (int room_id)
 {
 	Ship.s_room[room_id].r_symbol = 1;
+	Ship.s_symbol_quantity++;
 }
 
 
@@ -127,6 +141,31 @@ void
 ship_room_set_weapon (int room_id)
 {
 	Ship.s_room[room_id].r_weapon = 1;
+	Ship.s_weapon_quantity++;
+}
+
+
+/* Ship map functions. */
+
+
+void
+ship_compute_shortest_path (void)
+{
+	/* TODO */
+}
+
+
+void
+ship_find_paths (void)
+{
+	/* TODO */
+}
+
+
+void
+ship_output_solution (void)
+{
+	/* TODO */
 }
 
 
@@ -155,11 +194,4 @@ room_init (struct room *room)
 	room->r_self_destruct = 0;
 	room->r_power_up = 0;
 	room->r_extra = 0;
-}
-
-
-static int
-room_quantity (int ship_id)
-{
-	return ship_id * ROOMS_PER_LEVEL;
 }

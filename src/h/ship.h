@@ -8,6 +8,10 @@
 			     Function prototypes
 ****************************************************************************/
 
+
+/* Ship creation functions. */
+
+
 void
 ship_create (int number);
 
@@ -47,5 +51,19 @@ ship_room_set_teleport (int room_id);
 void
 ship_room_set_weapon (int room_id);
 
+
+/* Ship map functions. */
+
+
+void
+ship_compute_shortest_path (void);
+
+
+void
+ship_find_paths (void);
+
+
+void
+ship_output_solution (void);
 
 #endif /* SHIP_H */
