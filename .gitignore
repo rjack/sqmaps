@@ -1,4 +1,4 @@
 # I pdf vengono generati a partire dall'odg, quindi inutile controllarli.
 *.pdf
-*.o
 *.swp
+src/build
