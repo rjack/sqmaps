@@ -24,11 +24,19 @@
  */
 
 
-#ifndef SQM_CONST_H
-#define SQM_CONST_H
+#include <stdlib.h>
+#include <stdio.h>
 
 
-#define     ROOMS_PER_LEVEL     16
+/****************************************************************************
+			       Public functions
+****************************************************************************/
 
-
-#endif /* SQM_CONST_H */
+void
+check_allocation (void *ptr)
+{
+	if (ptr == NULL) {
+		perror ("Cannot allocate memory.");
+		exit (EXIT_FAILURE);
+	}
+}

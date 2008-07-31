@@ -27,32 +27,28 @@
 #ifndef SQMAPS_TYPES_H
 #define SQMAPS_TYPES_H
 
+#define     ROOMS_PER_LEVEL     16
 
-typedef unsigned int path_lenght_t;
+#define     ROOM_TYPES_NUM      10 
 
 
-struct room {
-	/* Id della room di destinazione, -1 se assente. */
-	int r_east;
-	int r_north;
-	int r_south;
-	int r_west;
-
-	/* Id della room di destinazione, -1 se assente. */
-	int r_down;
-	int r_mirror;
-	int r_up;
-
-	/* Booleani */
-	unsigned int r_extra:1;
-	unsigned int r_power_up:1;
-	unsigned int r_self_destruct:1;
-	unsigned int r_sonic_key:1;
-	unsigned int r_symbol:1;
-	unsigned int r_teleport:1;
-	unsigned int r_weapon:1;
+enum room_types {
+	GENERIC_ROOM,
+	START_ROOM,
+	SYMBOL_ROOM,
+	SONIC_KEY_ROOM,
+	MIRROR_ROOM,
+	WEAPON_ROOM,
+	EXTRA_ROOM,
+	POWER_UP_ROOM,
+	SELF_DESTRUCT_ROOM,
+	TELEPORT_ROOM
 };
 
+
+typedef enum room_types room_type_t;
+
+typedef unsigned int path_lenght_t;
 
 struct path {
 	path_lenght_t p_length;
@@ -78,15 +74,28 @@ struct path_to {
 };
 
 
+struct room {
+	room_type_t r_type;
+
+	/* Id della room di destinazione, -1 se assente. */
+	int r_east;
+	int r_north;
+	int r_south;
+	int r_west;
+
+	/* Id della room di destinazione, -1 se assente. */
+	int r_down;
+	int r_mirror;
+	int r_up;
+
+	/* Usata solo se una flag e' attiva. */
+	struct path_to *r_targets;
+};
+
+
 struct ship {
-	/* Quantita' di oggetti presenti nella nave. */
-	unsigned int s_room_quantity;
-	unsigned int s_symbol_quantity;
-	unsigned int s_sonic_key_quantity;
-	unsigned int s_mirror_quantity;
-	unsigned int s_weapon_quantity;
-	unsigned int s_extra_quantity;
-	unsigned int s_power_up_quantity;
+	/* Quantita' di stanze speciali. */
+	unsigned int s_room_quantity[ROOM_TYPES_NUM];
 
 	/* Array di room, lungo room_quantity. */
 	struct room *s_room;

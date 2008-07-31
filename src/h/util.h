@@ -24,51 +24,16 @@
  */
 
 
-#ifndef SHIP_H
-#define SHIP_H
-
-#include "types.h"
-
-#include <libxml/xmlstring.h>
+#ifndef SQMAPS_UTIL_H
+#define SQMAPS_UTIL_H
 
 
 /****************************************************************************
 			     Function prototypes
 ****************************************************************************/
 
-
-/* Ship creation functions. */
-
-
 void
-ship_create (int number);
+check_allocation (void *ptr);
 
 
-void
-ship_room_set_door (int room_id, xmlChar *direction);
-
-
-void
-ship_room_set_stairs (int room_id, xmlChar *direction, int destination_id);
-
-
-void
-ship_room_set_type (int room_id, room_type_t room_type);
-
-
-/* Ship map functions. */
-
-
-void
-ship_compute_shortest_path (void);
-
-
-void
-ship_find_paths (void);
-
-
-void
-ship_output_solution (void);
-
-
-#endif /* SHIP_H */
+#endif /* SQMAPS_UTIL_H */

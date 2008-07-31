@@ -1,0 +1,6 @@
+You need CMake <http://www.cmake.org/> to build sqmaps.
+
+
+Dependancies:
+
+- libxml2 <http://xmlsoft.org/>

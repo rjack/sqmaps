@@ -24,8 +24,8 @@
  */
 
 
-#include "h/const.h"
 #include "h/types.h"
+#include "h/util.h"
 
 #include <libxml/xmlstring.h>
 
@@ -62,21 +62,15 @@ ship_create (int id)
 
 	assert (id > 0 && id < 8);
 
-	Ship.s_room_quantity = ROOMS_PER_LEVEL * id;
-	Ship.s_symbol_quantity = 0;
-	Ship.s_sonic_key_quantity = 0;
-	Ship.s_mirror_quantity = 0;
-	Ship.s_weapon_quantity = 0;
-	Ship.s_extra_quantity = 0;
-	Ship.s_power_up_quantity = 0;
+	for (i = 0; i < ROOM_TYPES_NUM; i++)
+		Ship.s_room_quantity[i] = 0;
 
-	Ship.s_room = malloc (Ship.s_room_quantity * sizeof(struct room));
-	if (Ship.s_room == NULL) {
-		perror ("Cannot allocate memory.");
-		exit (EXIT_FAILURE);
-	}
+	Ship.s_room_quantity[GENERIC_ROOM] = ROOMS_PER_LEVEL * id;
 
-	for (i = 0; i < Ship.s_room_quantity; i++)
+	Ship.s_room = malloc (Ship.s_room_quantity[GENERIC_ROOM] * sizeof(struct room));
+	check_allocation (Ship.s_room);
+
+	for (i = 0; i < Ship.s_room_quantity[GENERIC_ROOM]; i++)
 		room_init (&Ship.s_room[i]);
 }
 
@@ -102,37 +96,6 @@ ship_room_set_door (int room_id, xmlChar *direction)
 
 
 void
-ship_room_set_extra (int room_id)
-{
-	Ship.s_room[room_id].r_extra = 1;
-	Ship.s_extra_quantity++;
-}
-
-
-void
-ship_room_set_power_up (int room_id)
-{
-	Ship.s_room[room_id].r_power_up = 1;
-	Ship.s_power_up_quantity++;
-}
-
-
-void
-ship_room_set_self_destruct (int room_id)
-{
-	Ship.s_room[room_id].r_self_destruct = 1;
-}
-
-
-void
-ship_room_set_sonic_key (int room_id)
-{
-	Ship.s_room[room_id].r_sonic_key = 1;
-	Ship.s_sonic_key_quantity++;
-}
-
-
-void
 ship_room_set_stairs (int room_id, xmlChar *direction, int destination_id)
 {
 	assert (direction != NULL);
@@ -149,25 +112,20 @@ ship_room_set_stairs (int room_id, xmlChar *direction, int destination_id)
 
 
 void
-ship_room_set_symbol (int room_id)
+ship_room_set_type (int room_id, room_type_t room_type)
 {
-	Ship.s_room[room_id].r_symbol = 1;
-	Ship.s_symbol_quantity++;
-}
+	struct room *room;
 
+	assert (room_type != GENERIC_ROOM);
 
-void
-ship_room_set_teleport (int room_id)
-{
-	Ship.s_room[room_id].r_teleport = 1;
-}
+	room = &Ship.s_room[room_id];
+	
+	room->r_type = room_type;
+	Ship.s_room_quantity[room_type]++;
 
-
-void
-ship_room_set_weapon (int room_id)
-{
-	Ship.s_room[room_id].r_weapon = 1;
-	Ship.s_weapon_quantity++;
+	assert (room->r_targets == NULL);
+	room->r_targets = calloc (1, sizeof(struct path_to));
+	check_allocation (room->r_targets);
 }
 
 
@@ -213,11 +171,7 @@ room_init (struct room *room)
 	room->r_down = -1;
 	room->r_mirror = -1;
 
-	room->r_symbol = 0;
-	room->r_sonic_key = 0;
-	room->r_weapon = 0;
-	room->r_teleport = 0;
-	room->r_self_destruct = 0;
-	room->r_power_up = 0;
-	room->r_extra = 0;
+	room->r_type = GENERIC_ROOM;
+
+	room->r_targets = NULL;
 }

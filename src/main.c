@@ -107,21 +107,29 @@ process_node (xmlTextReaderPtr reader)
 		ship_room_set_door (cur_room_id, direction);
 	}
 
+	/* start */
+	else if (node_has_name (reader, name, "start"))
+		ship_room_set_type (cur_room_id, START_ROOM);
+
 	/* extra */
 	else if (node_has_name (reader, name, "extra"))
-		ship_room_set_extra (cur_room_id);
+		ship_room_set_type (cur_room_id, EXTRA_ROOM);
 
 	/* power-up */
 	else if (node_has_name (reader, name, "power-up"))
-		ship_room_set_power_up (cur_room_id);
+		ship_room_set_type (cur_room_id, POWER_UP_ROOM);
 
 	/* self-destruct */
 	else if (node_has_name (reader, name, "self-destruct"))
-		ship_room_set_self_destruct (cur_room_id);
+		ship_room_set_type (cur_room_id, SELF_DESTRUCT_ROOM);
 
 	/* sonic-key */
 	else if (node_has_name (reader, name, "sonic-key"))
-		ship_room_set_sonic_key (cur_room_id);
+		ship_room_set_type (cur_room_id, SONIC_KEY_ROOM);
+
+	/* mirror */
+	else if (node_has_name (reader, name, "mirror"))
+		ship_room_set_type (cur_room_id, MIRROR_ROOM);
 
 	/* stairs */
 	else if (node_has_name (reader, name, "stairs")) {
@@ -137,15 +145,15 @@ process_node (xmlTextReaderPtr reader)
 
 	/* symbol */
 	else if (node_has_name (reader, name, "symbol"))
-		ship_room_set_symbol (cur_room_id);
+		ship_room_set_type (cur_room_id, SYMBOL_ROOM);
 
 	/* teleport */
 	else if (node_has_name (reader, name, "teleport"))
-		ship_room_set_teleport (cur_room_id);
+		ship_room_set_type (cur_room_id, TELEPORT_ROOM);
 
 	/* weapon */
 	else if (node_has_name (reader, name, "weapon"))
-		ship_room_set_weapon (cur_room_id);
+		ship_room_set_type (cur_room_id, WEAPON_ROOM);
 }
 
 
