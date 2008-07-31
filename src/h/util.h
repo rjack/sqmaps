@@ -36,8 +36,4 @@ void
 check_allocation (void *ptr);
 
 
-struct node *
-create_node (void);
-
-
 #endif /* SQMAPS_UTIL_H */
