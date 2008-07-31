@@ -24,20 +24,88 @@
  */
 
 
-#ifndef SQMAPS_UTIL_H
-#define SQMAPS_UTIL_H
+#ifndef RJACK_GRAPH_H
+#define RJACK_GRAPH_H
+
+#include <sys/types.h>
 
 
-/****************************************************************************
-			     Function prototypes
-****************************************************************************/
+#ifndef     vertex_id_t
+#define     vertex_id_t        int
+#endif
 
-void
-check_allocation (void *ptr);
+#ifndef     arch_weight_t
+#define     arch_weight_t      int
+#endif
+
+#ifndef     vertex_value_t
+#define     vertex_value_t     int
+#endif
 
 
-struct node *
-create_node (void);
+struct vertex;
+
+typedef struct vertex adjacency_list_t;
 
 
-#endif /* SQMAPS_UTIL_H */
+/* Vertex */
+typedef struct vertex {
+	/* Unique identifier */
+	vertex_id_t v_id;
+
+	/* Vertex payload */
+	vertex_value_t v_value;
+
+	/* Directly reachable vertexes */
+	adjacency_list_t *v_adjacent_vertexes;
+} vertex_t;
+
+
+
+
+/* Used in adjacency_list_t lists */
+typedef struct adjacent {
+	vertex_id_t a_id;
+	arch_weight_t a_weight;
+	struct adjacent *a_next;
+} adjacent_vertex_t;
+
+
+/* Graph */
+typedef struct {
+	vertex_t **g_vertex;
+	size_t g_vertex_quantity;
+} graph_t;
+
+
+/* Iterator */
+typedef struct {
+	graph_t *gi_graph;
+
+	/* Current vertex id, i.e. the id of the vertex returned by the last
+	 * graph_iterator_get_next call. */
+	vertex_id_t gi_current;
+} graph_iterator_t;
+
+
+typedef struct {
+	graph_t *bc_graph;
+
+	vertex_id_t bc_source;
+
+	/* TODO callback:
+	 * - vertex_is_target */
+
+	/* TODO data structures:
+	 * - visited
+	 * - to_be_explored queue */
+} bfs_context_t;
+
+
+typedef struct {
+	arch_weight_t *p_weight;
+
+	adjacency_list_t *p_vertexes;
+} path_t;
+
+#endif /* RJACK_GRAPH_H */

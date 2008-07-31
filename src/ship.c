@@ -45,7 +45,7 @@ static struct ship Ship;
 			     Function prototypes
 ****************************************************************************/
 
-static void room_init (struct room *room);
+static void room_init (struct room *room, room_id_t room_id);
 
 
 /****************************************************************************
@@ -71,27 +71,42 @@ ship_create (int id)
 	check_allocation (Ship.s_room);
 
 	for (i = 0; i < Ship.s_room_quantity[GENERIC_ROOM]; i++)
-		room_init (&Ship.s_room[i]);
+		room_init (&Ship.s_room[i], i);
 }
 
 
 void
-ship_room_set_door (int room_id, xmlChar *direction)
+ship_room_set_door (room_id_t room_id, xmlChar *direction)
 {
+	/* FIXME
+	struct room *current_room;
+	struct node *new_adj;
+	room_id_t destination_id;
+
 	assert (direction != NULL);
 
+	new_adj= create_node ();
+	current_room = &Ship.s_room[room_id];
+
 	if (xmlStrEqual (direction, BAD_CAST "north"))
-		Ship.s_room[room_id].r_north = room_id - 4;
+		destination_id = room_id - 4;
 	else if (xmlStrEqual (direction, BAD_CAST "east"))
-		Ship.s_room[room_id].r_east = room_id + 1;
+		destination_id = room_id + 1;
 	else if (xmlStrEqual (direction, BAD_CAST "west"))
-		Ship.s_room[room_id].r_west = room_id - 1;
+		destination_id = room_id - 1;
 	else if (xmlStrEqual (direction, BAD_CAST "south"))
-		Ship.s_room[room_id].r_south = room_id + 4;
+		destination_id = room_id + 4;
 	else {
 		fprintf (stderr, "Invalid door direction: %s\n", direction);
 		exit (EXIT_FAILURE);
 	}
+
+	new_adj->n_room = &Ship.s_room[destination_id];
+
+	* Inserimento in testa alla lista degli adiacenti. *
+	new_adj->n_next = current_room->r_adjacent;
+	current_room->r_adjacent = new_adj;
+	*/
 }
 
 
@@ -101,9 +116,11 @@ ship_room_set_stairs (int room_id, xmlChar *direction, int destination_id)
 	assert (direction != NULL);
 
 	if (xmlStrEqual (direction, BAD_CAST "up"))
-		Ship.s_room[room_id].r_up = destination_id;
+		/* FIXME Ship.s_room[room_id].r_up = destination_id; */
+		;
 	else if (xmlStrEqual (direction, BAD_CAST "down"))
-		Ship.s_room[room_id].r_down = destination_id;
+		/* FIXME Ship.s_room[room_id].r_down = destination_id; */
+		;
 	else {
 		fprintf (stderr, "Invalid stairs direction: %s\n", direction);
 		exit (EXIT_FAILURE);
@@ -123,9 +140,11 @@ ship_room_set_type (int room_id, room_type_t room_type)
 	room->r_type = room_type;
 	Ship.s_room_quantity[room_type]++;
 
+	/* FIXME
 	assert (room->r_targets == NULL);
 	room->r_targets = calloc (1, sizeof(struct path_to));
 	check_allocation (room->r_targets);
+	*/
 }
 
 
@@ -158,20 +177,15 @@ ship_output_solution (void)
 ****************************************************************************/
 
 static void
-room_init (struct room *room)
+room_init (struct room *room, room_id_t room_id)
 {
 	assert (room != NULL);
 
-	room->r_north = -1;
-	room->r_south = -1;
-	room->r_east = -1;
-	room->r_west = -1;
+	room->r_id = room_id;
 
-	room->r_up = -1;
-	room->r_down = -1;
-	room->r_mirror = -1;
+	/* FIXME room->r_adjacent = NULL; */
 
 	room->r_type = GENERIC_ROOM;
 
-	room->r_targets = NULL;
+	/* FIXME room->r_targets = NULL; */
 }

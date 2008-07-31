@@ -24,20 +24,90 @@
  */
 
 
-#ifndef SQMAPS_UTIL_H
-#define SQMAPS_UTIL_H
+#include "h/graph.h"
+
+#include <stdlib.h>
 
 
 /****************************************************************************
-			     Function prototypes
+			       Public functions
 ****************************************************************************/
 
+graph_t *
+graph_create (size_t node_quantity)
+{
+	/* TODO */
+	return NULL;
+}
+
+
+int
+graph_add_vertex (vertex_t *new_vertex)
+{
+	/* TODO */
+	return 0;
+}
+
+
+int
+graph_arch_create
+(vertex_t *from_vertex, vertex_t *to_vertex, arch_weight_t weight)
+{
+	/* TODO */
+	return 0;
+}
+
+
+vertex_t *
+vertex_create (vertex_id_t *id, vertex_value_t value)
+{
+	/* TODO */
+	return NULL;
+}
+
+
+graph_iterator_t *
+graph_get_iterator (graph_t *graph)
+{
+	/* TODO */
+	return NULL;
+}
+
+
+vertex_t *
+graph_iterator_get_next (graph_iterator_t *iterator)
+{
+	/* TODO */
+	return NULL;
+}
+
+
+vertex_t *
+graph_get_vertex (vertex_id_t *id)
+{
+	/* TODO */
+	return NULL;
+}
+
+
+bfs_context_t *
+bfs_context_create (graph_t *graph, vertex_id_t *source_id)
+{
+	/* TODO */
+	return NULL;
+}
+
+
 void
-check_allocation (void *ptr);
+bfs_context_destroy (bfs_context_t *bfs_context)
+{
+	/* TODO */
+}
 
 
-struct node *
-create_node (void);
-
-
-#endif /* SQMAPS_UTIL_H */
+path_t *
+bfs_run (bfs_context_t *bfs_context)
+{
+	/* TODO */
+	return NULL;
+}

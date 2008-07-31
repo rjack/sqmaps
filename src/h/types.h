@@ -27,6 +27,9 @@
 #ifndef SQMAPS_TYPES_H
 #define SQMAPS_TYPES_H
 
+#include <sys/types.h>
+
+
 #define     ROOMS_PER_LEVEL     16
 
 #define     ROOM_TYPES_NUM      10 
@@ -45,6 +48,20 @@ enum room_types {
 	TELEPORT_ROOM
 };
 
+
+typedef u_int8_t bool_t;
+
+#ifdef      TRUE
+#undef      TRUE
+#endif
+#ifdef      FALSE
+#undef      FALSE
+#endif
+#define     TRUE       ((bool_t)1)
+#define     FALSE      ((bool_t)0)
+
+
+typedef u_int8_t room_id_t;
 
 typedef enum room_types room_type_t;
 
@@ -75,21 +92,8 @@ struct path_to {
 
 
 struct room {
+	room_id_t r_id;
 	room_type_t r_type;
-
-	/* Id della room di destinazione, -1 se assente. */
-	int r_east;
-	int r_north;
-	int r_south;
-	int r_west;
-
-	/* Id della room di destinazione, -1 se assente. */
-	int r_down;
-	int r_mirror;
-	int r_up;
-
-	/* Usata solo se una flag e' attiva. */
-	struct path_to *r_targets;
 };
 
 
