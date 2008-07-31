@@ -85,54 +85,61 @@ static void
 process_node (xmlTextReaderPtr reader)
 {
 	static int cur_room_id;
-	xmlChar *name;
+	xmlChar *element_name;
+	xmlChar *attr_value;
 
-	name = xmlTextReaderName (reader);
-	if (name == NULL)
-		name = xmlStrdup (BAD_CAST "--");
+	attr_value = NULL;
+	element_name = xmlTextReaderName (reader);
+	if (element_name == NULL)
+		element_name = xmlStrdup (BAD_CAST "--");
 
 	/* ship */
-	else if (node_has_name (reader, name, "ship"))
-		ship_create (atoi ((char *)xmlTextReaderGetAttribute (reader, BAD_CAST "number")));
+	else if (node_has_name (reader, element_name, "ship")) {
+		attr_value = xmlTextReaderGetAttribute (reader,
+				BAD_CAST "number");
+		ship_create (atoi ((char *)attr_value));
+	}
 
 	/* new room */
-	else if (node_has_name (reader, name, "room"))
-		cur_room_id = atoi ((char *)xmlTextReaderGetAttribute (reader, BAD_CAST "id"));
+	else if (node_has_name (reader, element_name, "room")) {
+		attr_value = xmlTextReaderGetAttribute (reader,
+				BAD_CAST "id");
+		cur_room_id = atoi ((char *)attr_value);
+	}
 
 	/* door */
-	else if (node_has_name (reader, name, "door")) {
-		xmlChar *direction;
-
-		direction = xmlTextReaderGetAttribute (reader, BAD_CAST "dir");
-		ship_room_set_door (cur_room_id, direction);
+	else if (node_has_name (reader, element_name, "door")) {
+		attr_value = xmlTextReaderGetAttribute (reader,
+				BAD_CAST "dir");
+		ship_room_set_door (cur_room_id, attr_value);
 	}
 
 	/* start */
-	else if (node_has_name (reader, name, "start"))
+	else if (node_has_name (reader, element_name, "start"))
 		ship_room_set_type (cur_room_id, START_ROOM);
 
 	/* extra */
-	else if (node_has_name (reader, name, "extra"))
+	else if (node_has_name (reader, element_name, "extra"))
 		ship_room_set_type (cur_room_id, EXTRA_ROOM);
 
 	/* power-up */
-	else if (node_has_name (reader, name, "power-up"))
+	else if (node_has_name (reader, element_name, "power-up"))
 		ship_room_set_type (cur_room_id, POWER_UP_ROOM);
 
 	/* self-destruct */
-	else if (node_has_name (reader, name, "self-destruct"))
+	else if (node_has_name (reader, element_name, "self-destruct"))
 		ship_room_set_type (cur_room_id, SELF_DESTRUCT_ROOM);
 
 	/* sonic-key */
-	else if (node_has_name (reader, name, "sonic-key"))
+	else if (node_has_name (reader, element_name, "sonic-key"))
 		ship_room_set_type (cur_room_id, SONIC_KEY_ROOM);
 
 	/* mirror */
-	else if (node_has_name (reader, name, "mirror"))
+	else if (node_has_name (reader, element_name, "mirror"))
 		ship_room_set_type (cur_room_id, MIRROR_ROOM);
 
 	/* stairs */
-	else if (node_has_name (reader, name, "stairs")) {
+	else if (node_has_name (reader, element_name, "stairs")) {
 		xmlChar *direction;
 		xmlChar *destination;
 
@@ -141,19 +148,25 @@ process_node (xmlTextReaderPtr reader)
 
 		ship_room_set_stairs (cur_room_id, direction,
 				atoi ((char *)destination));
+		free (direction);
+		free (destination);
 	}
 
 	/* symbol */
-	else if (node_has_name (reader, name, "symbol"))
+	else if (node_has_name (reader, element_name, "symbol"))
 		ship_room_set_type (cur_room_id, SYMBOL_ROOM);
 
 	/* teleport */
-	else if (node_has_name (reader, name, "teleport"))
+	else if (node_has_name (reader, element_name, "teleport"))
 		ship_room_set_type (cur_room_id, TELEPORT_ROOM);
 
 	/* weapon */
-	else if (node_has_name (reader, name, "weapon"))
+	else if (node_has_name (reader, element_name, "weapon"))
 		ship_room_set_type (cur_room_id, WEAPON_ROOM);
+
+	free (element_name);
+	if (attr_value != NULL)
+		free (attr_value);
 }
 
 
