@@ -25,7 +25,9 @@
 
 
 #include "h/graph.h"
+#include "h/util.h"
 
+#include <assert.h>
 #include <stdlib.h>
 
 
@@ -34,10 +36,24 @@
 ****************************************************************************/
 
 graph_t *
-graph_create (size_t node_quantity)
+graph_create (size_t vertex_quantity)
 {
-	/* TODO */
-	return NULL;
+	int i;
+	graph_t *new_graph;
+
+	assert (vertex_quantity != 0);
+
+	new_graph = malloc (sizeof(graph_t));
+	check_allocation (new_graph);
+
+	new_graph->g_vertex_quantity = vertex_quantity;
+	new_graph->g_vertex = malloc (vertex_quantity * sizeof(vertex_t *));
+	check_allocation (new_graph->g_vertex);
+
+	for (i = 0; i < vertex_quantity; i++)
+		new_graph->g_vertex[i] = NULL;
+
+	return new_graph;
 }
 
 
