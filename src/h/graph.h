@@ -30,22 +30,24 @@
 #include <sys/types.h>
 
 
-#ifndef     vertex_id_t
-#define     vertex_id_t        int
-#endif
-
-#ifndef     arch_weight_t
-#define     arch_weight_t      int
-#endif
-
 #ifndef     vertex_value_t
 #define     vertex_value_t     int
 #endif
 
+typedef int arch_weight_t;
+typedef unsigned int vertex_id_t;
 
 struct vertex;
 
 typedef struct vertex adjacency_list_t;
+
+typedef enum {
+	ID_AUTO_INCREMENT,
+	ID_MANUALLY_SET
+	/* TODO ID_VALUE_MD5 */
+	/* TODO ID_VALUE_SHA1 */
+	/* TODO ID_RANDOM */
+} graph_add_vertex_option_t;
 
 
 /* Vertex */
@@ -74,7 +76,9 @@ typedef struct adjacent {
 /* Graph */
 typedef struct {
 	vertex_t **g_vertex;
-	size_t g_vertex_quantity;
+	ssize_t g_vertex_quantity;
+	size_t g_size;
+	/* struct graph_callbacks *g_callbacks; */
 } graph_t;
 
 

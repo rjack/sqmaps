@@ -26,6 +26,7 @@
 
 #include "h/graph.h"
 #include "h/util.h"
+#include "h/types.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -36,21 +37,22 @@
 ****************************************************************************/
 
 graph_t *
-graph_create (size_t vertex_quantity)
+graph_create (size_t graph_size)
 {
 	int i;
 	graph_t *new_graph;
 
-	assert (vertex_quantity != 0);
+	assert (graph_size != 0);
 
 	new_graph = malloc (sizeof(graph_t));
 	check_allocation (new_graph);
 
-	new_graph->g_vertex_quantity = vertex_quantity;
-	new_graph->g_vertex = malloc (vertex_quantity * sizeof(vertex_t *));
+	new_graph->g_vertex_quantity = 0;
+	new_graph->g_size = graph_size;
+	new_graph->g_vertex = malloc (graph_size * sizeof(vertex_t *));
 	check_allocation (new_graph->g_vertex);
 
-	for (i = 0; i < vertex_quantity; i++)
+	for (i = 0; i < graph_size; i++)
 		new_graph->g_vertex[i] = NULL;
 
 	return new_graph;
@@ -58,10 +60,35 @@ graph_create (size_t vertex_quantity)
 
 
 int
-graph_add_vertex (vertex_t *new_vertex)
+graph_add_vertex
+(graph_t *graph, vertex_t *new_vertex, graph_add_vertex_option_t auto_id)
 {
-	/* TODO */
-	return 0;
+	assert (graph != NULL);
+	assert (new_vertex != NULL);
+
+	/* Set new_vertex id */
+	switch (auto_id) {
+
+	case ID_MANUALLY_SET:
+		if (!graph_is_valid_vertex_id (graph, new_vertex->v_id)
+		    || graph_contains_vertex_id (new_vertex->v_id))
+			return 0;
+		break;
+
+	case ID_AUTO_INCREMENT:
+		if (graph_is_full (graph))
+			return 0;
+		new_vertex->v_id = graph->g_vertex_quantity;
+		break;
+
+	default:
+		return 0;
+	}
+
+	graph->g_vertex[new_vertex->v_id] = new_vertex;
+	graph->g_vertex_quantity++;
+
+	return 1;
 }
 
 
@@ -89,6 +116,28 @@ graph_get_iterator (graph_t *graph)
 	return NULL;
 }
 
+
+bool_t
+graph_is_full (graph_t *graph)
+{
+	assert (graph != NULL);
+	assert (graph->g_vertex_quantity < graph->g_size);
+
+	if (graph->g_vertex_quantity = graph->g_size - 1)
+		return TRUE;
+	return FALSE;
+}
+
+
+bool_t
+graph_is_valid_vertex_id (graph_t *graph, vertex_id_t id)
+{
+	assert (graph != NULL);
+
+	if (id < 0 || id >= graph->g_size)
+		return TRUE;
+	return FALSE;
+}
 
 vertex_t *
 graph_iterator_get_next (graph_iterator_t *iterator)
