@@ -58,10 +58,12 @@
 			<door dir="east"/>
 		</room>
 		<room id="13">
+			<door dir="north"/>
 			<door dir="west"/>
 			<door dir="east"/>
 		</room>
 		<room id="14">
+			<door dir="north"/>
 			<door dir="west"/>
 			<door dir="east"/>
 		</room>

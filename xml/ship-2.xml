@@ -33,6 +33,7 @@
 		</room>
 		<room id="7">
 			<door dir="north"/>
+			<door dir="west"/>
 			<door dir="south"/>
 		</room>
 
@@ -121,7 +122,6 @@
 		</room>
 		<room id="26">
 			<power-up type="oxygen"/>
-			<door dir="east"/>
 			<door dir="south"/>
 			<door dir="west"/>
 		</room>
@@ -140,6 +140,7 @@
 			<door dir="east"/>
 		</room>
 		<room id="30">
+			<door dir="north"/>
 			<door dir="west"/>
 			<door dir="east"/>
 		</room>
