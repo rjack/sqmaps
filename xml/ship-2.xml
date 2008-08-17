@@ -1,152 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ship number="2">
 	<level number="1">
-		<room id="0">
-			<start/>
-			<door dir="east"/>
-			<door dir="south"/>
+		<room id="0" class="start">
+			<exit type="door" dir="east" to="1"/>
+			<exit type="door" dir="south" to="4"/>
 		</room>
 		<room id="1">
-			<door dir="west"/>
-			<door dir="east"/>
+			<exit type="door" dir="east" to="2"/>
+			<exit type="door" dir="west" to="0"/>
 		</room>
 		<room id="2">
-			<sonic-key/>
-			<door dir="west"/>
+			<object type="sonic-key" name="Sonic Key"/>
+			<exit type="door" dir="west" to="1"/>
 		</room>
 		<room id="3">
-			<symbol/>
-			<door dir="south"/>
+			<object type="symbol" name="First Symbol"/>
+			<exit type="door" dir="south" to="7"/>
 		</room>
 
 		<room id="4">
-			<door dir="north"/>
-			<door dir="east"/>
+			<exit type="door" dir="north" to="0"/>
+			<exit type="door" dir="east" to="5"/>
 		</room>
 		<room id="5">
-			<door dir="west"/>
-			<door dir="south"/>
+			<exit type="door" dir="west" to="4"/>
+			<exit type="door" dir="south" to="9"/>
 		</room>
 		<room id="6">
-			<mirror to="22"/>
-			<door dir="east"/>
+			<object type="mirror" name="Mirror"/>
+			<exit type="stairs" dir="down" to="22"/>
+			<exit type="door" dir="east" to="7"/>
 		</room>
 		<room id="7">
-			<door dir="north"/>
-			<door dir="west"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="3"/>
+			<exit type="door" dir="west" to="6"/>
+			<exit type="door" dir="south" to="11"/>
 		</room>
 
 		<room id="8">
-			<door dir="east"/>
+			<exit type="door" dir="west" to="9"/>
 		</room>
 		<room id="9">
-			<door dir="west"/>
-			<door dir="north"/>
-			<door dir="east"/>
+			<exit type="door" dir="north" to="5"/>
+			<exit type="door" dir="west" to="8"/>
+			<exit type="door" dir="east" to="10"/>
 		</room>
 		<room id="10">
-			<door dir="west"/>
-			<door dir="south"/>
+			<exit type="door" dir="west" to="9"/>
+			<exit type="door" dir="south" to="14"/>
 		</room>
 		<room id="11">
-			<door dir="north"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="7"/>
+			<exit type="door" dir="south" to="15"/>
 		</room>
 
 		<room id="12">
-			<stairs dir="down" to="28"/>
-			<door dir="east"/>
+			<exit type="stairs" dir="down" to="28"/>
+			<exit type="door" dir="east" to="13"/>
 		</room>
 		<room id="13">
-			<zap/>
-			<door dir="west"/>
-			<door dir="east"/>
+			<object type="zap" name="Electric Shock"/>
+			<exit type="door" dir="west" to="12"/>
+			<exit type="door" dir="east" to="14"/>
 		</room>
 		<room id="14">
-			<door dir="west"/>
-			<door dir="north"/>
-			<door dir="east"/>
+			<exit type="door" dir="west" to="13"/>
+			<exit type="door" dir="north" to="10"/>
+			<exit type="door" dir="east" to="15"/>
 		</room>
 		<room id="15">
-			<door dir="west"/>
-			<door dir="north"/>
+			<exit type="door" dir="west" to="14"/>
+			<exit type="door" dir="north" to="11"/>
 		</room>
 	</level>
 
 	<level number="2">
 		<room id="16">
-			<symbol/>
-			<door dir="south"/>
+			<object type="symbol" name="Last Symbol"/>
+			<exit type="door" dir="south" to="20"/>
 		</room>
 		<room id="17">
-			<door dir="east"/>
-			<door dir="south"/>
+			<exit type="door" dir="east" to="18"/>
+			<exit type="door" dir="south" to="21"/>
 		</room>
 		<room id="18">
-			<teleport/>
-			<door dir="west"/>
+			<object type="teleport" name="Teleport"/>
+			<exit type="door" dir="west" to="17"/>
 		</room>
 		<room id="19">
-			<self-destruct/>
-			<door dir="south"/>
+			<object type="self-destruct" name="Self Destruct"/>
+			<exit type="door" dir="south" to="23"/>
 		</room>
 
 		<room id="20">
-			<door dir="north"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="16"/>
+			<exit type="door" dir="south" to="24"/>
 		</room>
 		<room id="21">
-			<door dir="north"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="17"/>
+			<exit type="door" dir="south" to="25"/>
 		</room>
 		<room id="22">
-			<extra/>
-			<stairs dir="up" to="6"/>
+			<object type="extra" name="Extra Bonus"/>
+			<exit type="stairs" dir="up" to="6"/>
 		</room>
 		<room id="23">
-			<door dir="north"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="19"/>
+			<exit type="door" dir="south" to="27"/>
 		</room>
 
 		<room id="24">
-			<door dir="north"/>
-			<door dir="east"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="20"/>
+			<exit type="door" dir="east" to="25"/>
+			<exit type="door" dir="south" to="28"/>
 		</room>
 		<room id="25">
-			<door dir="north"/>
-			<door dir="east"/>
-			<door dir="south"/>
-			<door dir="west"/>
+			<exit type="door" dir="north" to="21"/>
+			<exit type="door" dir="east" to="26"/>
+			<exit type="door" dir="south" to="21"/>
+			<exit type="door" dir="west" to="24"/>
 		</room>
 		<room id="26">
-			<power-up type="oxygen"/>
-			<door dir="south"/>
-			<door dir="west"/>
+			<object type="power-up" name="Oxygen 4x"/>
+			<exit type="door" dir="south" to="30"/>
+			<exit type="door" dir="west" to="25"/>
 		</room>
 		<room id="27">
-			<power-up type="force"/>
-			<door dir="north"/>
-			<door dir="south"/>
+			<object type="power-up" name="Energy 4x"/>
+			<exit type="door" dir="north" to="23"/>
+			<exit type="door" dir="south" to="31"/>
 		</room>
 
 		<room id="28">
-			<stairs dir="up" to="12"/>
-			<door dir="north"/>
+			<exit type="stairs" dir="up" to="12"/>
+			<exit type="door" dir="north" to="24"/>
 		</room>
 		<room id="29">
-			<door dir="north"/>
-			<door dir="east"/>
+			<exit type="door" dir="north" to="25"/>
+			<exit type="door" dir="east" to="30"/>
 		</room>
 		<room id="30">
-			<door dir="north"/>
-			<door dir="west"/>
-			<door dir="east"/>
+			<exit type="door" dir="north" to="26"/>
+			<exit type="door" dir="west" to="29"/>
+			<exit type="door" dir="east" to="31"/>
 		</room>
 		<room id="31">
-			<door dir="north"/>
-			<door dir="west"/>
+			<exit type="door" dir="north" to="27"/>
+			<exit type="door" dir="west" to="30"/>
 		</room>
 	</level>
 </ship>

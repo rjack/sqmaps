@@ -1,75 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ship number="1">
 	<level number="1">
-		<room id="0">
-			<start/>
-			<door dir="east"/>
+		<room id="0" class="start">
+			<exit type="door" dir="east" to="1"/>
 		</room>
 		<room id="1">
-			<weapon name="sword"/>
-			<door dir="west"/>
-			<door dir="east"/>
+			<object type="weapon" name="Laser Sword"/>
+			<exit type="door" dir="west" to="0"/>
+			<exit type="door" dir="east" to="2"/>
 		</room>
 		<room id="2">
-			<door dir="west"/>
-			<door dir="east"/>
+			<exit type="door" dir="west" to="1"/>
+			<exit type="door" dir="east" to="3"/>
 		</room>
 		<room id="3">
-			<door dir="west"/>
-			<door dir="south"/>
+			<exit type="door" dir="west" to="2"/>
+			<exit type="door" dir="south" to="7"/>
 		</room>
 
 		<room id="4">
-			<symbol/>
-			<door dir="south"/>
+			<object type="symbol" name="Symbol"/>
+			<exit type="door" dir="south" to="8"/>
 		</room>
 		<room id="5">
-			<teleport/>
-			<door dir="south"/>
+			<object type="teleport" name="Teleport"/>
+			<exit type="door" dir="south" to="9"/>
 		</room>
 		<room id="6">
-			<self-destruct/>
-			<door dir="south"/>
+			<object type="self-destruct" name="Self Destruct"/>
+			<exit type="door" dir="south" to="10"/>
 		</room>
 		<room id="7">
-			<door dir="north"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="3"/>
+			<exit type="door" dir="south" to="11"/>
 		</room>
 
 		<room id="8">
-			<door dir="north"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="4"/>
+			<exit type="door" dir="south" to="12"/>
 		</room>
 		<room id="9">
-			<door dir="north"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="5"/>
+			<exit type="door" dir="south" to="13"/>
 		</room>
 		<room id="10">
-			<door dir="north"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="6"/>
+			<exit type="door" dir="south" to="14"/>
 		</room>
 		<room id="11">
-			<door dir="north"/>
-			<door dir="south"/>
+			<exit type="door" dir="north" to="7"/>
+			<exit type="door" dir="south" to="15"/>
 		</room>
 
 		<room id="12">
-			<door dir="north"/>
-			<door dir="east"/>
+			<exit type="door" dir="north" to="8"/>
+			<exit type="door" dir="east" to="13"/>
 		</room>
 		<room id="13">
-			<door dir="north"/>
-			<door dir="west"/>
-			<door dir="east"/>
+			<exit type="door" dir="north" to="9"/>
+			<exit type="door" dir="west" to="12"/>
+			<exit type="door" dir="east" to="14"/>
 		</room>
 		<room id="14">
-			<door dir="north"/>
-			<door dir="west"/>
-			<door dir="east"/>
+			<exit type="door" dir="north" to="10"/>
+			<exit type="door" dir="west" to="13"/>
+			<exit type="door" dir="east" to="15"/>
 		</room>
 		<room id="15">
-			<door dir="north"/>
-			<door dir="west"/>
+			<exit type="door" dir="north" to="11"/>
+			<exit type="door" dir="west" to="14"/>
 		</room>
 	</level>
 </ship>
