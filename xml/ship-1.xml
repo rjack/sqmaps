@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ship number="1">
-	<level number="1">
+<ship 
+	xmlns="http://github.com/rjack/sqmaps"
+	id="1">
+
+	<level id="1">
 		<room id="0" class="start">
 			<exit type="door" dir="east" to="1"/>
 		</room>
 		<room id="1">
-			<object type="weapon" name="Laser Sword"/>
 			<exit type="door" dir="west" to="0"/>
 			<exit type="door" dir="east" to="2"/>
+			<object type="weapon" name="Laser Sword"/>
 		</room>
 		<room id="2">
 			<exit type="door" dir="west" to="1"/>
@@ -19,16 +22,16 @@
 		</room>
 
 		<room id="4">
-			<object type="symbol" name="Symbol"/>
 			<exit type="door" dir="south" to="8"/>
+			<object type="symbol" name="Symbol"/>
 		</room>
 		<room id="5">
-			<object type="teleport" name="Teleport"/>
 			<exit type="door" dir="south" to="9"/>
+			<object type="teleport" name="Teleport"/>
 		</room>
 		<room id="6">
-			<object type="self-destruct" name="Self Destruct"/>
 			<exit type="door" dir="south" to="10"/>
+			<object type="self-destruct" name="Self Destruct"/>
 		</room>
 		<room id="7">
 			<exit type="door" dir="north" to="3"/>

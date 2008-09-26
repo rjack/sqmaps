@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ship number="2">
-	<level number="1">
+<ship 
+	xmlns="http://github.com/rjack/sqmaps"
+	id="2">
+	<level id="1">
 		<room id="0" class="start">
 			<exit type="door" dir="east" to="1"/>
 			<exit type="door" dir="south" to="4"/>
@@ -10,12 +12,12 @@
 			<exit type="door" dir="west" to="0"/>
 		</room>
 		<room id="2">
-			<object type="sonic-key" name="Sonic Key"/>
 			<exit type="door" dir="west" to="1"/>
+			<object type="sonic-key" name="Sonic Key"/>
 		</room>
 		<room id="3">
-			<object type="symbol" name="First Symbol"/>
 			<exit type="door" dir="south" to="7"/>
+			<object type="symbol" name="First Symbol"/>
 		</room>
 
 		<room id="4">
@@ -27,9 +29,9 @@
 			<exit type="door" dir="south" to="9"/>
 		</room>
 		<room id="6">
-			<object type="mirror" name="Mirror"/>
 			<exit type="stairs" dir="down" to="22"/>
 			<exit type="door" dir="east" to="7"/>
+			<object type="mirror" name="Mirror"/>
 		</room>
 		<room id="7">
 			<exit type="door" dir="north" to="3"/>
@@ -59,9 +61,9 @@
 			<exit type="door" dir="east" to="13"/>
 		</room>
 		<room id="13">
-			<object type="zap" name="Electric Shock"/>
 			<exit type="door" dir="west" to="12"/>
 			<exit type="door" dir="east" to="14"/>
+			<object type="zap" name="Electric Shock"/>
 		</room>
 		<room id="14">
 			<exit type="door" dir="west" to="13"/>
@@ -74,22 +76,22 @@
 		</room>
 	</level>
 
-	<level number="2">
+	<level id="2">
 		<room id="16">
-			<object type="symbol" name="Last Symbol"/>
 			<exit type="door" dir="south" to="20"/>
+			<object type="symbol" name="Last Symbol"/>
 		</room>
 		<room id="17">
 			<exit type="door" dir="east" to="18"/>
 			<exit type="door" dir="south" to="21"/>
 		</room>
 		<room id="18">
-			<object type="teleport" name="Teleport"/>
 			<exit type="door" dir="west" to="17"/>
+			<object type="teleport" name="Teleport"/>
 		</room>
 		<room id="19">
-			<object type="self-destruct" name="Self Destruct"/>
 			<exit type="door" dir="south" to="23"/>
+			<object type="self-destruct" name="Self Destruct"/>
 		</room>
 
 		<room id="20">
@@ -101,8 +103,8 @@
 			<exit type="door" dir="south" to="25"/>
 		</room>
 		<room id="22">
-			<object type="extra" name="Extra Bonus"/>
 			<exit type="stairs" dir="up" to="6"/>
+			<object type="extra" name="Extra Bonus"/>
 		</room>
 		<room id="23">
 			<exit type="door" dir="north" to="19"/>
@@ -121,14 +123,14 @@
 			<exit type="door" dir="west" to="24"/>
 		</room>
 		<room id="26">
-			<object type="power-up" name="Oxygen 4x"/>
 			<exit type="door" dir="south" to="30"/>
 			<exit type="door" dir="west" to="25"/>
+			<object type="power-up" name="Oxygen 4x"/>
 		</room>
 		<room id="27">
-			<object type="power-up" name="Energy 4x"/>
 			<exit type="door" dir="north" to="23"/>
 			<exit type="door" dir="south" to="31"/>
+			<object type="power-up" name="Energy 4x"/>
 		</room>
 
 		<room id="28">
